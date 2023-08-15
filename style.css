@@ -1,0 +1,173 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0px;
+}
+
+.wrapper {
+  background: var(--body-bg);
+  min-height: 100vh;
+  color: var(--text-color);
+}
+
+.container {
+  width: 90%;
+  margin: auto;
+  /* padding: auto; */
+}
+
+.flex {
+  display: flex;
+  gap: 1rem;
+}
+
+.grid {
+  display: grid;
+  gap: 1rem;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ------ root variables ------- */
+
+:root {
+  --color-orange: orange;
+  --color-dark: rgb(34, 32, 32);
+
+  --body-bg: white;
+  --text-color: var(var(--color-dark));
+  --border-color: var(--color-dark);
+
+  /* dark mode --  */
+  --dark-bg: var(var(--color-dark));
+  --dark-text-color: white;
+  --dark-border-color: white;
+}
+
+/* --- dark mode --  */
+
+/* --- header --  */
+
+header {
+  box-shadow: 0 0 10px 5px gray;
+  position: sticky;
+  top: 0;
+  background: var(--body-bg);
+}
+
+.header {
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1rem;
+}
+
+#darkMode {
+  display: none;
+}
+.dark-mode-switch {
+  position: fixed;
+  top: 8rem;
+  left: 3rem;
+}
+
+.dark-mode-switch:hover {
+  transform: scale(1.5);
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+/* ----- dark mode activation ----  */
+
+#darkMode:checked + .wrapper {
+  --body-bg: var(--color-dark);
+  --text-color: var(--dark-text-color);
+  /* color: var(--dark-text-color); */
+  --border-color: var(--dark-border-color);
+}
+
+.logo {
+  font-size: 1.3rem;
+  position: relative;
+}
+
+.logo > div:nth-child(1) {
+  font-weight: bolder;
+  margin-right: 1rem;
+}
+
+.line::before {
+  content: "";
+  width: 4px;
+  height: 100%;
+
+  position: absolute;
+  left: 45%;
+  background: var(--color-orange);
+}
+
+.navigation {
+  list-style: none;
+}
+
+.navigation li a:hover {
+  color: var(--color-orange);
+  transition: all 0.5s;
+}
+
+/* ============ hero section ==========  */
+
+.hero-section {
+  padding-top: 10rem;
+  color: var(--text-color);
+}
+
+.hero {
+  grid-template-areas: "left right";
+  background: var(--color-orange);
+  padding: 0 2rem;
+}
+
+.left {
+  grid-area: left;
+
+  justify-content: center;
+  align-items: center;
+  margin-left: 10vw;
+  flex-direction: column;
+}
+
+.left .name {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.left button {
+  background: var(--dark-bg);
+  padding: 10px 2rem;
+  border-radius: 2rem;
+  color: var(--body-bg);
+}
+
+.left .tag {
+  font-size: 2.2rem;
+  font-weight: bolder;
+  letter-spacing: 5px;
+}
+
+.right {
+  grid-area: right;
+  justify-content: baseline;
+  align-items: center;
+  margin-top: -4rem;
+}
+
+.right img {
+  height: 105%;
+  /* box-shadow: 10px black; */
+}
